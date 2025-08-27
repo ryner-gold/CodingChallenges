@@ -1,4 +1,4 @@
-package com.hackerrank.strings;
+package com.hackerrank.strings.stringsintroduction;
 
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
@@ -9,7 +9,8 @@ public class StringsIntroduction {
 
     public static boolean isABeforeB(String a, String b){
         int position = a.compareTo(b);
-        log.info("Position of A compared to B {}", position);
+        boolean result = position >= 1;
+        log.info("Position of A compared to B: {} therefore result is: {}", position, result);
         return position >= 1;
     }
 
@@ -19,14 +20,15 @@ public class StringsIntroduction {
         String a=sc.next();
         String b=sc.next();
         /* Enter your code here. Print output to STDOUT. */
-        log.info("Total character length {}", a.length() + b.length());
-        if(isABeforeB(a, b)){
-            log.info("No");
-        }  else {
+        log.info("Total character length: {}", a.length() + b.length());
+        boolean result = isABeforeB(a, b);
+        if(result){
             log.info("Yes");
+        }  else {
+            log.info("No");
         }
         if(log.isInfoEnabled()) {
-            log.info("{} + {}{} ", a.substring(0,1).toUpperCase(),
+            log.info("{}{} {}{} ", a.substring(0,1).toUpperCase(), a.substring(1),
                 b.substring(0,1).toUpperCase(), b.substring(1));
         }
     }
